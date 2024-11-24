@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohan Ganesh Babu Pothala</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <style>
         /* CSS Variables for theming */
         :root {
@@ -177,38 +179,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-decoration: none;
         }
-
-        /* Cybersecurity-themed background */
-        .cyber-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, transparent 50%, rgba(30, 41, 59, 0.2) 100%);
-            opacity: 0.5;
-        }
-
-        /* Binary code animation */
-        @keyframes binary {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
-        }
-        .binary-code {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="20" fill="%236366f1" font-family="monospace" font-size="10">10110101</text><text x="30" y="40" fill="%2334d399" font-family="monospace" font-size="10">01001010</text><text x="50" y="60" fill="%23fbbf24" font-family="monospace" font-size="10">11001100</text><text x="70" y="80" fill="%23f87171" font-family="monospace" font-size="10">00110011</text></svg>');
-            opacity: 0.1;
-            animation: binary 20s linear infinite;
-        }
-
+        
         /* Sections */
         section {
             padding: 4rem 0;
@@ -387,16 +358,6 @@
             </div>
         </section>
     </main>
-<!-- 
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Mohan. All rights reserved.</p>
-            <nav>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-            </nav>
-        </div>
-    </footer> -->
 
     <script>
         // Theme toggling functionality
@@ -414,6 +375,34 @@
         }
 
         themeToggle.addEventListener('click', toggleTheme);
+
+        (function() {
+            emailjs.init("D6mhe66AmOe_dSkkv"); // User ID
+        })();
+
+        // Handle form submission
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            const formData = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+            };
+
+            // Send email using EmailJS
+            emailjs.send("service_x5g8wwa", "template_x6ebbkm", formData)
+                .then(function(response) {
+                    alert("Your message has been sent successfully!");
+                    document.getElementById("contact-form").reset(); // Reset form fields
+                })
+                .catch(function(error) {
+                    alert("Failed to send your message. Please try again later.");
+                    console.error("Error:", error);
+                });
+        });
+
     </script>
 </body>
 </html>
