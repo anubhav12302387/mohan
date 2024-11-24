@@ -160,7 +160,13 @@
             border: 4px solid var(--primary);
             object-fit: cover;
             box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
         }
+        .profile-picture:hover {
+            box-shadow: 0 0 30px rgba(90, 233, 161, 0.5); /* Enhanced hover shadow */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--primary);
