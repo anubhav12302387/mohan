@@ -163,8 +163,8 @@
             transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
         }
         .profile-picture:hover {
-            box-shadow: 0 0 30px rgba(90, 233, 161, 0.5); /* Enhanced hover shadow */
-            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 0 30px rgba(90, 233, 161, 0.5); 
+            transform: scale(1.05); 
         }
 
         .btn {
@@ -335,6 +335,67 @@
                 display: none;
             }
         }
+        /* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-text {
+        margin-bottom: 2rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    .profile-picture {
+        width: 200px;
+        height: 200px;
+    }
+    .menu {
+        display: none; /* Hide menu by default */
+        flex-direction: column;
+        background-color: var(--background);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text);
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav .menu {
+        align-items: center;
+    }
+    .btn {
+        margin-bottom: 1rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -345,12 +406,22 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">Mohan</a>
-                <div class="menu">
+                
+                <!-- Hamburger Menu -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+    
+                <!-- Menu Links -->
+                <div class="menu" id="menu">
                     <a href="projects.html">Certification</a>
                     <a href="skills.html">Experience</a>
                     <a href="blog.html">Blog</a>
                     <a href="contact.html">Contact</a>
                 </div>
+    
                 <div class="flex items-center">
                     <button class="theme-toggle" aria-label="Toggle dark mode">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -370,6 +441,7 @@
             </nav>
         </div>
     </header>
+    
 
     <main>
         <section class="hero">
@@ -401,6 +473,15 @@
     </footer> -->
 
     <script>
+        
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        });
+
+
         // Theme toggling functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
