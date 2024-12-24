@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohan Ganesh Babu Pothala</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        
         /* CSS Variables for theming */
         :root {
             --background: #ffffff;
@@ -39,6 +41,7 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            height: fit-content;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--background);
@@ -49,9 +52,9 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        a:hover {
+        /* a:hover {
             text-decoration: underline;
-        }
+        } */
 
         /* Layout */
         .container {
@@ -76,17 +79,31 @@
             gap: 1rem;
         }
 
-        /* Header */
-        header {
+         /* Header and Navbar */
+         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            width: 100%;
             z-index: 10;
             padding: 1rem 0;
-            background-color: var(--background);
+            /* background-color: var(--background); */
+            background: transparent;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        .hamburger {
+        display: flex;
+        width: fit-content;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text);
+    }
         nav {
             display: flex;
             justify-content: space-between;
@@ -94,12 +111,30 @@
         }
         nav a {
             color: var(--text);
+            font-size: 1.02em;
             margin-left: 1rem;
             transition: color 0.3s ease;
         }
         nav a:hover {
             color: var(--primary);
         }
+
+        .logo{
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+        }
+
+        .logo:hover{
+            color: #bababa;
+        }
+
+        .links{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3.5em;
+        }
+
         .github-button {
             padding: 0.5rem 1rem;
             border: 1px solid var(--primary);
@@ -178,14 +213,49 @@
             text-decoration: none;
         }
 
+        /* Cybersecurity-themed background */
+        .cyber-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, transparent 50%, rgba(30, 41, 59, 0.2) 100%);
+            opacity: 0.5;
+        }
+
+        /* Binary code animation */
+        @keyframes binary {
+            /* 0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); } */
+
+            0% {background-position: 0 0;}
+            100% {background-position: 0 -100%;}
+        }
+        .binary-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="20" fill="%236366f1" font-family="monospace" font-size="10">10110101</text><text x="30" y="40" fill="%2334d399" font-family="monospace" font-size="10">01001010</text><text x="50" y="60" fill="%23fbbf24" font-family="monospace" font-size="10">11001100</text><text x="70" y="80" fill="%23f87171" font-family="monospace" font-size="10">00110011</text></svg>');
+            opacity: 0.1;
+            animation: binary 20s linear infinite;
+        }
+
        
         /* Sections */
         section {
-            padding: 4rem 0;
+            padding: 0 0;
         }
         section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            margin-top: 1em;
+            margin-bottom: 1em;
             text-align: center;
             color: var(--primary);
         }
@@ -289,7 +359,7 @@ section {
     text-align: center;
 }
 h2 {
-    font-size: 2rem;
+    font-size: 5rem;
     margin-bottom: 1.5rem;
     color: var(--primary);
 }
@@ -341,7 +411,7 @@ h2 {
 }
 
 /* Card Button */
-.btn {
+/* .btn {
     background-color: var(--primary);
     color: #fff;
     padding: 0.5rem 1.5rem;
@@ -353,6 +423,20 @@ h2 {
 .btn:hover {
     background-color: var(--accent1);
     transform: translateY(-2px);
+} */
+
+.btn1{
+    background-color: var(--primary);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn1:hover{
+    background-color: black;
 }
 
 
@@ -381,28 +465,40 @@ h2 {
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">Mohan</a>
-                <div class="menu">
-                    <a href="projects.html">Certification</a>
-                    <a href="skills.html">Experience</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>
+                <a href="#" class="logo">Mohan</a>
+                
+                <!-- Hamburger Menu -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="flex items-center">
-                    <button class="theme-toggle" aria-label="Toggle dark mode">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                            <line x1="1" y1="12" x2="3" y2="12"/>
-                            <line x1="21" y1="12" x2="23" y2="12"/>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                        </svg>
-                    </button>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="github-button">Github Profile</a>
+    
+                <div class="links">
+                    <!-- Menu Links -->
+                    <div class="menu" id="menu">
+                        <a href="certification.html">Certification</a>
+                        <a href="experience.html">Experience</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+        
+                    <div class="flex items-center">
+                        <button class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </button>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="github-button">Github Profile</a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -413,32 +509,41 @@ h2 {
 
         <section id="projects">
             <div class="container">
-                <h2>Certification</h2>
+                <!-- <h2>Certification</h2> -->
+                <h2>Credentials That Speak for Themselves</h2>
                 <div class="grid">
                     <div class="card">
                         <img src="certification/OSCP BADGE.png" alt="OSCP Certification" loading="lazy">
                         <h3>Offensive Security Certified Professional (OSCP)</h3>
-                        <a href="https://www.credential.net/7f88c51d-b589-4fcf-b9a2-366c8ef68707" class="btn">Show credential</a>
+                        <a href="https://www.credential.net/7f88c51d-b589-4fcf-b9a2-366c8ef68707" class="btn1">Show credential</a>
                     </div>
                     <div class="card">
                         <img src="certification/PJPT BADGE.png" alt="TCM Certification" loading="lazy">
                         <h3>Practical Junior Penetration Tester (PJPT)</h3>
-                        <a href="https://certified.tcm-sec.com/9855b338-5f8d-4360-9826-d082d8e24af2?key=924752cc7fb5d58125bc9478364605311293a8675d515866e4a4bd47a11b11a1" class="btn">Show credential</a>
+                        <a href="https://certified.tcm-sec.com/9855b338-5f8d-4360-9826-d082d8e24af2?key=924752cc7fb5d58125bc9478364605311293a8675d515866e4a4bd47a11b11a1" class="btn1">Show credential</a>
                     </div>
                     <div class="card">
                         <img src="certification/comptia_network-removebg-preview.png" alt="CompTIA Network+ Certification" loading="lazy">
                         <h3>CompTIA <br> Network+</h3>
-                        <a href="https://www.credly.com/badges/f5ec675e-4e79-476f-a729-5230aec932bb/public_url" class="btn">Show credential</a>
+                        <a href="https://www.credly.com/badges/f5ec675e-4e79-476f-a729-5230aec932bb/public_url" class="btn1">Show credential</a>
                     </div>
                     <div class="card">
                         <img src="certification/Comptia_Security__1_-removebg-preview.png" alt="CompTIA Security+ Certification" loading="lazy">
                         <h3>CompTIA <br> Security+</h3>
-                        <a href="https://www.credly.com/badges/38ba34f9-0f46-42af-b4ce-c10da0d8fa25" class="btn">Show credential</a>
+                        <a href="https://www.credly.com/badges/38ba34f9-0f46-42af-b4ce-c10da0d8fa25" class="btn1">Show credential</a>
                     </div>
                 </div>
             </div>
         </section>
     <script>
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+        });
+
+
         // Theme toggling functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');

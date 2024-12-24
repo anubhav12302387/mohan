@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohan Ganesh Babu Pothala</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         /* CSS Variables for theming */
         :root {
             --background: #ffffff;
@@ -48,9 +49,9 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        a:hover {
+        /* a:hover {
             text-decoration: underline;
-        }
+        } */
 
         /* Layout */
         .container {
@@ -75,15 +76,17 @@
             gap: 1rem;
         }
 
-        /* Header */
+        /* Header and Navbar */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            width: 100%;
             z-index: 10;
             padding: 1rem 0;
-            background-color: var(--background);
+            /* background-color: var(--background); */
+            background: transparent;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         nav {
@@ -93,12 +96,30 @@
         }
         nav a {
             color: var(--text);
+            font-size: 1.02em;
             margin-left: 1rem;
             transition: color 0.3s ease;
         }
         nav a:hover {
             color: var(--primary);
         }
+
+        .logo{
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+        }
+
+        .logo:hover{
+            color: #bababa;
+        }
+
+        .links{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3.5em;
+        }
+
         .github-button {
             padding: 0.5rem 1rem;
             border: 1px solid var(--primary);
@@ -131,9 +152,9 @@
             flex: 1;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 0.2rem;
             background: linear-gradient(45deg, var(--primary), var(--accent1), var(--accent2));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -142,9 +163,11 @@
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            display: flex;
+            justify-content: flex-start;
         }
         .hero p {
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             max-width: 600px;
         }
         .hero-image {
@@ -153,8 +176,8 @@
             justify-content: center;
         }
         .profile-picture {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
             border: 4px solid var(--primary);
             object-fit: cover;
@@ -166,12 +189,20 @@
             transform: scale(1.05); 
         }
 
+        .btnBox{
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 1.2em;
+            padding-bottom: 1.2em;
+        }
+
         .btn {
             display: inline-block;
             background-color: var(--primary);
             color: var(--background);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
+            padding: 0.65rem 1.2rem;
+            /* border-radius: 9999px; */
+            border-radius: 20px;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -200,15 +231,18 @@
 
         /* Binary code animation */
         @keyframes binary {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
+            /* 0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); } */
+
+            0% {background-position: 0 0;}
+            100% {background-position: 0 -100%;}
         }
         .binary-code {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 200%;
+            height: 100%;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="20" fill="%236366f1" font-family="monospace" font-size="10">10110101</text><text x="30" y="40" fill="%2334d399" font-family="monospace" font-size="10">01001010</text><text x="50" y="60" fill="%23fbbf24" font-family="monospace" font-size="10">11001100</text><text x="70" y="80" fill="%23f87171" font-family="monospace" font-size="10">00110011</text></svg>');
             opacity: 0.1;
             animation: binary 20s linear infinite;
@@ -374,6 +408,7 @@
     }
     .hamburger {
         display: flex;
+        width: fit-content;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
@@ -413,29 +448,31 @@
                     <span></span>
                 </div>
     
-                <!-- Menu Links -->
-                <div class="menu" id="menu">
-                    <a href="certification.html">Certification</a>
-                    <a href="experience.html">Experience</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-    
-                <div class="flex items-center">
-                    <button class="theme-toggle" aria-label="Toggle dark mode">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                            <line x1="1" y1="12" x2="3" y2="12"/>
-                            <line x1="21" y1="12" x2="23" y2="12"/>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                        </svg>
-                    </button>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="github-button">Github Profile</a>
+                <div class="links">
+                    <!-- Menu Links -->
+                    <div class="menu" id="menu">
+                        <a href="certification.html">Certification</a>
+                        <a href="experience.html">Experience</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+        
+                    <div class="flex items-center">
+                        <button class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </button>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="github-button">Github Profile</a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -451,8 +488,10 @@
                     <p>A dedicated security researcher who achieved the OSCP certification at the age of 20, along with several other certifications. I am committed to continuous learning and improvement in the cybersecurity field. 
 
                         In addition to my technical skills, I am also an experienced public speaker, having presented at over 10 events at Lovely Professional University (LPU). I am passionate about sharing knowledge and inspiring others who are beginning their cybersecurity journey.</p>
-                    <a href="#contact" class="btn">Contact Me</a>
-                    <a href="#projects" class="btn" style="background-color: transparent; border: 1px solid var(--primary); color: var(--text); margin-left: 1rem;">View Projects</a>
+                    <div class="btnBox">
+                        <a href="#contact" class="btn">Contact Me</a>
+                        <a href="#projects" class="btn" style="background-color: transparent; border: 1px solid var(--primary); color: var(--text); margin-left: 1rem;">View Projects</a>
+                    </div>
                 </div>
                 <div class="hero-image">
                     <img src="./1709796195119.jpeg" alt="Jane Doe" class="profile-picture">
