@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
         /* CSS Variables for theming */
         :root {
             --background: #ffffff;
@@ -42,7 +42,13 @@
             padding: 20px;
         }
 
-        
+        .font {
+            font-family: 'Oswald', sans-serif;
+        }
+        .font1 {
+            font-family: 'roboto', sans-serif;
+            font-weight: 100;
+        }
         .timeline {
             position: relative;
             padding: 20px 0;
