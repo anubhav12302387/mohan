@@ -4,6 +4,14 @@ const page = () => {
 
   const events = [
     {
+      year: "Dec, 2024 - Present",
+      title: "FireCompass",
+      subtitle: "Security Analyst Intern",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit.",
+      logo: "💻",
+      cardLogo: "🖥️",
+    },
+    {
       year: "Jan, 2024 - Present",
       title: "Defcon Jalandhar",
       subtitle: "Lead",
@@ -34,14 +42,6 @@ const page = () => {
       description: "Initiated the development of our groundbreaking application.",
       logo: "🎓",
       cardLogo: "📘",
-    },
-    {
-      year: "Ddec, 2024 - Present",
-      title: "FireCompass",
-      subtitle: "Security Analyst Intern",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit.",
-      logo: "💻",
-      cardLogo: "🖥️",
     },
   ];
 
