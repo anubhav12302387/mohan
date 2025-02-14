@@ -3,17 +3,17 @@ import React from 'react'
 const page = () => {
 
   const events = [
-    {
-      year: "Dec, 2024 - Present",
-      title: "FireCompass",
-      subtitle: "Security Analyst Intern",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit.",
-      logo: "💻",
-      cardLogo: "🖥️",
-    },
+    // {
+    //   year: "Dec, 2024 - Present",
+    //   title: "FireCompass",
+    //   subtitle: "Security Analyst Intern",
+    //   description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit.",
+    //   logo: "💻",
+    //   cardLogo: "🖥️",
+    // },
     {
       year: "Jan, 2024 - Present",
-      title: "Defcon Jalandhar",
+      title: "Cisco Campus Ambassador",
       subtitle: "Lead",
       description: "Released a significant update with new features and improvements.",
       logo: "💻",
@@ -22,14 +22,14 @@ const page = () => {
     {
       year: "Oct, 2022 - Dec, 2024",
       title: "AWS Cloud Club at LPU",
-      subtitle: "Operations Lead",
+      subtitle: "Mangement Lead",
       description: "Officially launched the application to the public with great reception.",
       logo: "🎓",
       cardLogo: "📘",
     },
     {
       year: "Sep, 2022 - Aug, 2024",
-      title: "Google Developer Student Club - LPU",
+      title: "Cisco CybserSec Symposium",
       subtitle: "Ex-Cyber Security Lead",
       description: "Successfully released the beta version to a select group of users.",
       logo: "💻",
@@ -38,7 +38,7 @@ const page = () => {
     {
       year: "Oct, 2021 - Jan, 2024",
       title: "NOOB 4rMY",
-      subtitle: "Co-Lead",
+      subtitle: "Technical Team Member",
       description: "Initiated the development of our groundbreaking application.",
       logo: "🎓",
       cardLogo: "📘",

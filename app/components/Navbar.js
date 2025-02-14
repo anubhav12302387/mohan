@@ -1,207 +1,74 @@
-// "use client"
-// import React from "react";
-// import { useState } from 'react';
-// import Link from 'next/link';
-
-// const Navbar = () => {
-
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <div className='fixed h-fit bg-transparent w-screen p-3 z-50'>
-//       <nav className="flex justify-between mx-6">
-//         <div className="flex justify-center items-center">
-//           <Link href="/" className="logo md:text-4xl text-2xl">Mohan</Link>
-//         </div>
-
-//         <div className="flex justify-center items-center">
-//           <ul className="flex gap-8 mx-8">
-//             <li><Link href="/" className="text-base">Home</Link></li>
-//             <li><Link href="/Certifications" className="text-base">Certifications</Link></li>
-//             <li><Link href="/Experience" className="text-base">Experience</Link></li>
-//             <li><Link href="/Gallery" className="text-base">Gallery</Link></li>
-//             <li><Link href="/Blog" className="text-base">Blog</Link></li>
-//             <li><Link href="/Contact" className="text-base">Contact</Link></li>
-//           </ul>
-  
-//           <div className="flex mx-6 gap-8">
-//             <Link href="https://github.com" target="_blank" className="button text-base border px-4 py-2 rounded-xl">Resume</Link>
-//             <Link href="https://github.com" target="_blank" className="button text-base border px-4 py-2 rounded-xl">Github</Link>
-//           </div>
-//           <button className="text-2xl sm:hidden focus:outline-none"onClick={() => setIsOpen(!isOpen)}aria-label="Toggle Menu">{isOpen ? "✖" : "☰"}</button>
-//         </div>
-//       </nav>
-
-//       {/* Overlay Menu */}
-//       <div className={`fixed top-0 left-0 w-full h-full backdrop-blur-md text-white flex flex-col items-center justify-center space-y-8 text-2xl transition-transform duration-300 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-//         <button className="absolute top-4 right-4 text-3xl focus:outline-none"onClick={() => setIsOpen(false)}aria-label="Close Menu">✖</button>
-    
-//           <ul className="flex gap-8 mx-8">
-//             <li><Link href="/" className="text-base">Home</Link></li>
-//             <li><Link href="/Certifications" className="text-base">Certifications</Link></li>
-//             <li><Link href="/Experience" className="text-base">Experience</Link></li>
-//             <li><Link href="/Gallery" className="text-base">Gallery</Link></li>
-//             <li><Link href="/Blog" className="text-base">Blog</Link></li>
-//             <li><Link href="/Contact" className="text-base">Contact</Link></li>
-//           </ul>
-  
-//           <div className="flex mx-6 gap-8">
-//             <Link href="https://github.com" target="_blank" className="button text-base border px-4 py-2 rounded-xl">Resume</Link>
-//             <Link href="https://github.com" target="_blank" className="button text-base border px-4 py-2 rounded-xl">Github</Link>
-//           </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Navbar
-
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed h-fit bg-transparent w-screen p-3 z-50">
-      <nav className="flex justify-between mx-6">
+    <header className="fixed w-full bg-transparent p-4 z-50 shadow-md backdrop-blur-lg">
+      <nav className="flex justify-between items-center mx-6">
         {/* Logo */}
-        <div className="flex justify-center items-center">
-          <Link href="/" className="logo md:text-4xl text-2xl">
-            Mohan
+        <div className="flex items-center">
+          <Link href="/" className="font-bold text-3xl md:text-4xl text-white">
+            Jaya
           </Link>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden sm:flex justify-center items-center">
-          <ul className="flex gap-8 mx-8">
-            <li>
-              <Link href="/" className="text-base">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/Certifications" className="text-base">
-                Certifications
-              </Link>
-            </li>
-            <li>
-              <Link href="/Experience" className="text-base">
-                Experience
-              </Link>
-            </li>
-            <li>
-              <Link href="/Gallery" className="text-base">
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/Blog" className="text-base">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/Contact" className="text-base">
-                Contact
-              </Link>
-            </li>
+        <div className="hidden sm:flex items-center space-x-6">
+          <ul className="flex gap-6 text-lg text-white">
+            {["Home", "Certifications", "Experience", "Gallery", "Blog", "Contact"].map((item) => (
+              <li key={item}>
+                <Link href={`/${item}`} className="hover:text-gray-300 transition duration-300">
+                  {item}
+                </Link>
+              </li>
+            ))}
           </ul>
-
-          <div className="flex mx-6 gap-8">
-            <Link
-              href="https://github.com"
-              target="_blank"
-              className="button text-base border px-4 py-2 rounded-xl"
-            >
+          <div className="flex space-x-4">
+            <Link href="https://github.com" target="_blank" className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
               Resume
             </Link>
-            <Link
-              href="https://github.com"
-              target="_blank"
-              className="button text-base border px-4 py-2 rounded-xl"
-            >
+            <Link href="https://github.com" target="_blank" className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
               Github
             </Link>
           </div>
         </div>
 
-        {/* Mobile Toggle Button */}
-        <button
-          className="text-2xl sm:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
-        >
+        {/* Mobile Menu Button */}
+        <button className="text-3xl sm:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? "✖" : "☰"}
         </button>
       </nav>
 
-      {/* Overlay Menu for Mobile */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full backdrop-blur-md text-white flex flex-col items-center justify-center space-y-8 text-2xl z-40 bg-black bg-opacity-50">
-          <button
-            className="absolute top-4 right-4 text-3xl focus:outline-none"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close Menu"
-          >
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black bg-opacity-80 text-white text-2xl space-y-6 z-40">
+          <button className="absolute top-4 right-6 text-3xl" onClick={() => setIsOpen(false)}>
             ✖
           </button>
-          <ul className="flex flex-col gap-8 items-center">
-            <li>
-              <Link href="/" className="text-base" onClick={() => setIsOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/Certifications"
-                className="text-base"
-                onClick={() => setIsOpen(false)}
-              >
-                Certifications
-              </Link>
-            </li>
-            <li>
-              <Link href="/Experience" className="text-base" onClick={() => setIsOpen(false)}>
-                Experience
-              </Link>
-            </li>
-            <li>
-              <Link href="/Gallery" className="text-base" onClick={() => setIsOpen(false)}>
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/Blog" className="text-base" onClick={() => setIsOpen(false)}>
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/Contact" className="text-base" onClick={() => setIsOpen(false)}>
-                Contact
-              </Link>
-            </li>
-          </ul>
-
-          <div className="flex flex-col gap-4">
-            <Link
-              href="https://github.com"
-              target="_blank"
-              className="button text-base border px-4 py-2 rounded-xl"
-            >
+          {["Home", "Certifications", "Experience", "Gallery", "Blog", "Contact"].map((item) => (
+            <Link key={item} href={`/${item}`} className="hover:text-gray-400 transition duration-300" onClick={() => setIsOpen(false)}>
+              {item}
+            </Link>
+          ))}
+          <div className="flex flex-col space-y-4 mt-6">
+            <Link href="https://github.com" target="_blank" className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
               Resume
             </Link>
-            <Link
-              href="https://github.com"
-              target="_blank"
-              className="button text-base border px-4 py-2 rounded-xl"
-            >
+            <Link href="https://github.com" target="_blank" className="border px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
               Github
             </Link>
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </header>
   );
 };
 

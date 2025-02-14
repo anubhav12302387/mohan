@@ -6,8 +6,8 @@ const page = () => {
       <div className='binary-code z-0'></div>
 
       <div className='z-10'>
-        <h1 className='md:text-5xl text-4xl my-4'>Your Gateway to Cybersecurity Expertise</h1>
-        <p className='md:text-xl trxt-lg'>Get in touch for collaboration, consultation, or to explore my journey in cybersecurity.</p>
+        <h1 className='md:text-5xl text-4xl my-4 text-center'>Your Gateway to Cybersecurity Expertise</h1>
+        <p className='md:text-xl trxt-lg text-center'>Get in touch for collaboration, consultation, or to explore my journey in cybersecurity.</p>
       </div>
 
       <div className='z-10 w-full flex justify-center items-center my-8'>
@@ -31,7 +31,7 @@ const page = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="my-6 text-center flex justify-start">
+          <div className="my-6 text-center flex justify-center">
             <button type="submit" value="send" className="button text-white py-2 px-4 rounded-md shadow-lg">Send Query</button>
           </div>
         </form>

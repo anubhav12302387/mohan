@@ -7,7 +7,7 @@ const page = () => {
       <div className='binary-code z-0'></div>
 
       <div className='z-10'>
-        <h1 className='md:text-5xl text-3xl'>Credentials that Speak for Themselves</h1>
+        <h1 className='md:text-5xl text-3xl text-center'>Credentials that Speak for Themselves</h1>
       </div>
 
       <div className='flex flex-wrap flex-col mx-4 my-10 justify-center items-center z-10'>
